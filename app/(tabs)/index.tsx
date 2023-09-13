@@ -1,12 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView, FlatList  } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import List from '../../components/List';
+import { Text, View,} from '../../components/Themed';
+
+const arr : number[] = [];
+for (let i = 0; i < 100; i++) {
+  arr.push(i);
+}
 
 export default function TabOneScreen() {
   return (
     <View>
-      <Text>test</Text>
+       <FlatList
+      keyExtractor={item => item.toString()}
+      data={arr}
+      renderItem={({item}) => <List num={item} />}
+    />
     </View>
   );
 }
