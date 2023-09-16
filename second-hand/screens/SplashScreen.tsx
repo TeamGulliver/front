@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { useNavigation,useIsFocused,NavigationProp } from '@react-navigation/native';
+import { useNavigation,useIsFocused } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 
 type NavigationParams = {
     Start: undefined; // 'Register' 스크린에 전달할 파라미터가 있다면 여기에 정의
-};
+    Splash:undefined; 
+  };
   
-type NavigationType = NavigationProp<NavigationParams, 'Start'>;
-
 const SplashScreen: React.FC = () => {
 
-  const navigation = useNavigation<NavigationType>();
-  const [showLogo, setShowLogo] = useState(true);
+  const navigation = useNavigation<NativeStackNavigationProp<NavigationParams>>();
+const [showLogo, setShowLogo] = useState(true);
   const isFocused = useIsFocused();
 
   useEffect(() => {

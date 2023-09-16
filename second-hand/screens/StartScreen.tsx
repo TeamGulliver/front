@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import { useNavigation,NavigationProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type NavigationParams = {
     Login: undefined; // 'Register' 스크린에 전달할 파라미터가 있다면 여기에 정의
     Register: undefined; 
+    Start:undefined;
 };
   
-type NavigationType = NavigationProp<NavigationParams, 'Login'>;
-
 
 const StartScreen: React.FC = () => {
-    const navigation = useNavigation<NavigationType>();
+  const navigation = useNavigation<NativeStackNavigationProp<NavigationParams>>();
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

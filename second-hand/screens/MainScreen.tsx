@@ -4,13 +4,15 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 // 네비게이션 파라미터 타입 정의 (RootStackParam에 따라 수정)
-export type RootStackParam = {
-  MainScreen: undefined;
+export type NavigationParams = {
+  Main: undefined;
+  Register: undefined;
+  Login: undefined;
 };
 
 // MainScreen 컴포넌트
 const MainScreen: React.FC = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParam>>();
+  const navigation = useNavigation<NativeStackNavigationProp<NavigationParams>>();
 
   // 로그아웃 처리 및 이전 스크린으로 이동
   const handleLogout = () => {
